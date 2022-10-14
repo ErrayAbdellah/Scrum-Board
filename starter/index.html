@@ -4,8 +4,8 @@
 	<meta charset="utf-8" />
 	<title>YouCode | Scrum Board</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
+	<meta content="" name="description"/>
+	<meta content="" name="author"/>
 	
 	<!-- ================== BEGIN core-css ================== -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -22,18 +22,20 @@
 		<!-- BEGIN #content -->
 		<div id="content" class="app-content main-style">
 			<div class="d-flex justify-content-between align-items-lg-center align-items-start">
-				<div>
-					<ol class="d-flex" style="padding: 0;">
-						<li class=" page-header row"><a href="javascript:;"><img src="assets/img/icons/home.png" style="width:40px ;" alt="Home"></a></li>
-						<li class="page-header row"><a href="javascript:;"><img src="assets/img/icons/kanban.png" style="width:40px ;" alt="Scrum Board"></a></li>
-					</ol>
+				
+			<nav class="navbar-expand">
+				<ol class="navbar-nav ">
+					<li class=""><a class="nav-link" href="#">Home </a></li>
+					<li class="active"><a class="nav-link" href="#">Features</a></li>
+				</ol>
+			</nav>
 					<!-- BEGIN page-header -->
 					
 					<!-- END page-header -->
-				</div>
-				
+
+
 				<div class="">
-					<button class="btn btn-success  rounded-pill"> Add Task<i class="bi bi-plus"></i></button>
+					<button class="btn btn-success  rounded-pill"data-bs-toggle="modal" data-bs-target="#modal-task"> Add Task<i class="bi bi-plus"></i></button>
 				</div>
 			</div>
 			<div class="text-center text-lg-start" >
@@ -42,8 +44,8 @@
 				</h1>
 			</div>
 			<div class="row justify-content-around">
-				<div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="width:450px;" >
-					<div class="card  "  style="width: 100%; " >
+				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"  >
+					<div class="card bg-secondary "  style="width: 100%; " >
 						<div class="card-header bg-secondary text-center text-lg-start" >
 							<h4 class="text-light">To do (<span id="to-do-tasks-count">5</span>)</h4>
 						</div>
@@ -51,7 +53,7 @@
 							<!-- TO DO TASKS HERE -->
 							<button class="border-1 border-secondary d-flex" style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi bi-question-circle "></i>
+									<i class="bi bi-question-circle text-success fa-2x"></i>
 								</div>
 								<div class="text-start col-11">
 									<div class="fw-bold">Keep all the updated requirements in one place</div>
@@ -67,7 +69,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi bi-question-circle"></i> 
+									<i class="bi bi-question-circle text-success fa-2x"></i> 
 								</div>
 								<div class="text-start ">
 									<div class="fw-bold">Consider creating an acceptance criteria list</div>
@@ -87,7 +89,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi bi-question-circle"></i> 
+									<i class="bi bi-question-circle text-success fa-2x"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Provide examples, credentials, etc</div>
@@ -103,7 +105,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi bi-question-circle"></i> 
+									<i class="bi bi-question-circle text-success fa-2x"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Annotate</div>
@@ -119,7 +121,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi  bi-question-circle"></i> 
+									<i class="bi  bi-question-circle text-success fa-2x"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Use charts and diagrams</div>
@@ -136,8 +138,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="width:450px;"   >
-					<div  class="card"  style="width: 100%; " >
+				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"    >
+					<div  class="card bg-secondary"  style="width: 100%; " >
 						<div class="card-header  bg-secondary text-center text-lg-start">
 							<h4 class="text-light">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
 
@@ -146,7 +148,7 @@
 							<!-- IN PROGRESS TASKS HERE -->
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="spinner-border spinner-border-sm"></i> 
+									<i class="spinner-border spinner-border-sm text-success"></i> 
 								</div>
 								<div class="text-start col-11">
 									<div class="fw-bold">Describe steps to reproduce an issue</div>
@@ -162,7 +164,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="spinner-border spinner-border-sm"></i> 
+									<i class="spinner-border spinner-border-sm text-success"></i> 
 								</div>
 								<div class="text-start col-11">
 									<div class="fw-bold">Provide access</div>
@@ -178,7 +180,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="spinner-border spinner-border-sm"></i> 
+									<i class="spinner-border spinner-border-sm text-success"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Provide environment information</div>
@@ -194,7 +196,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="spinner-border spinner-border-sm"></i> 
+									<i class="spinner-border spinner-border-sm text-success"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Provide a link to an exception and/or a stack trace</div>
@@ -211,8 +213,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="width:450px;" >
-					<div   class="card"   style="width: 100%; ">
+				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"  >
+					<div   class="card bg-secondary"   style="width: 100%; ">
 						<div class="card-header bg-secondary text-center text-lg-start">
 							<h4 class="text-light">Done (<span id="done-tasks-count">4</span>)</h4>
 
@@ -221,7 +223,7 @@
 							<!-- DONE TASKS HERE -->
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi bi-check-circle"></i> 
+									<i class="bi bi-check-circle text-success fa-2x"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Provide access to logs</div>
@@ -237,7 +239,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi bi-check-circle"></i> 
+									<i class="bi bi-check-circle text-success fa-2x"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Provide access to the affected server or database dump</div>
@@ -253,7 +255,7 @@
 							</button>
 							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi bi-check-circle"></i> 
+									<i class="bi bi-check-circle text-success fa-2x"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Make a screencast</div>
@@ -269,7 +271,7 @@
 							</button>
 							<button  class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
-									<i class="bi bi-check-circle"></i> 
+									<i class="bi bi-check-circle text-success fa-2x"></i> 
 								</div>
 								<div class="text-start">
 									<div class="fw-bold">Provide contact information</div>
@@ -298,10 +300,76 @@
 	<!-- END #app -->
 	
 	<!-- TASK MODAL -->
-	<div class="modal fade" id="modal-task">
-		<!-- Modal content goes here -->
+		
+
+	<div class="modal fade" id="modal-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content "style="background-color: #CAEBF2;">
+				<div class=" card-header bg-secondary text-center ">
+				<h2 class="text-white ">Add Task</h2>
+				</div>
+				<div class="modal-body">
+					<!--begin form-->
+					<div class="align-items-md-center ">
+						<div>
+							<label for="formGroupExampleInput" class="form-label">Title</label>
+							<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+						</div>
+						<!-- radion Button -->
+						<div>
+								<label class="form-label">Title</label>
+								<div class="form-check">
+									<input class="form-check-input ch" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<label class="form-check-label text-secondary-500" for="flexRadioDefault1">
+									Feature
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input ch" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+									<label class="form-check-label text-secondary-500" for="flexRadioDefault2">
+									Bug
+									</label>
+								</div>
+						</div>
+						<!-- end radion Button -->
+							<div>
+								<label for="formGroupExampleInput" class="form-label">Priority</label>
+								<select class="form-select" aria-label="Default select example">
+									<option selected>Please select</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+								</select>
+								<label for="formGroupExampleInput" class="form-label">Status</label>
+								<select class="form-select" aria-label="Default select example">
+									<option selected>Please select</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+								</select>
+							</div>
+							<!-- end select-->
+							<div>
+									<label for="formGroupExampleInput" class="form-label">Date</label>
+								<div>
+									<input type="date" class="form-control">
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+								<textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+							</div>
+						<!--end form-->
+					</div>
+					<div class="modal-footer">
+						<button type="button"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 ">Cancel</button>
+						<button type="button" class="btn btn-success rounded-3 w-25">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>	
 	</div>
-	
+
 	<!-- ================== BEGIN core-js ================== -->
 	<script src="assets/js/vendor.min.js"></script>
 	<script src="assets/js/app.min.js"></script>

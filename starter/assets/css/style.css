@@ -8,3 +8,8 @@
     background-size: 360px;
     background-position: right bottom;
 }
+
+.ch:checked
+{
+    background-color: #00ACAC;
+}
