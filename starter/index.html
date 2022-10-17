@@ -76,10 +76,10 @@
 									<div class="">
 										<div class="text-secondary-300">#2 created in 2022-10-08</div>
 										<div class="" title="Descriptive requirements are very helpful when it comes to understanding the context of a problem, yet finally it is good to precisely specify what is expected. Thus the developer will not have to look for the actual requirements in a long, descriptive text but he will be able to easily get to the essence. One might find that sometimes — when acceptance criteria are well defined — there is little or no need for any additional information. Example:
-						a) User navigates to “/accounts” and clicks on red download CSV button
-						b) Popup appears with two buttons: “This year” and “Last year”
-						c) If user clicked on “Last year” download is initiated
-						d) CSV downloaded includes following columns…">Descriptive requirements are very helpful when it comes...</div>
+							a) User navigates to “/accounts” and clicks on red download CSV button
+							b) Popup appears with two buttons: “This year” and “Last year”
+							c) If user clicked on “Last year” download is initiated
+							d) CSV downloaded includes following columns…">Descriptive requirements are very helpful when it comes...</div>
 									</div>
 									<div class="">
 										<span class="btn btn-info rounded-pill">High</span>
@@ -313,19 +313,19 @@
 					<div class="align-items-md-center ">
 						<div>
 							<label for="formGroupExampleInput" class="form-label">Title</label>
-							<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+							<input type="text" class="form-control" id="titleIn" placeholder="Example input placeholder">
 						</div>
 						<!-- radion Button -->
 						<div>
-								<label class="form-label">Title</label>
+								<label class="form-label">Type</label>
 								<div class="form-check">
-									<input class="form-check-input ch" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<input class="form-check-input ch" type="radio" value="Feature" name="Type" id="flexRadioDefault1">
 									<label class="form-check-label text-secondary-500" for="flexRadioDefault1">
 									Feature
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input ch" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+									<input class="form-check-input ch" type="radio" value="Bug" name="Type" id="flexRadioDefault2" checked>
 									<label class="form-check-label text-secondary-500" for="flexRadioDefault2">
 									Bug
 									</label>
@@ -334,36 +334,36 @@
 						<!-- end radion Button -->
 							<div>
 								<label for="formGroupExampleInput" class="form-label">Priority</label>
-								<select class="form-select" aria-label="Default select example">
+								<select class="form-select" aria-label="Default select example" id="select1">
 									<option selected>Please select</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
+									<option value="todo">Todo</option>
+									<option value="inProgress">In Progress</option>
+									<option value="done">Done</option>
 								</select>
 								<label for="formGroupExampleInput" class="form-label">Status</label>
-								<select class="form-select" aria-label="Default select example">
+								<select class="form-select" aria-label="Default select example" id="select2">
 									<option selected>Please select</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
+									<option value="High">High</option>
+									<option value="Medium">Medium</option>
+									<option value="low">low</option>
 								</select>
 							</div>
 							<!-- end select-->
 							<div>
 									<label for="formGroupExampleInput" class="form-label">Date</label>
 								<div>
-									<input type="date" class="form-control">
+									<input type="date" class="form-control" id="date">
 								</div>
 							</div>
 							<div class="mb-3">
-								<label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+								<label for="exampleFormControlTextarea1" class="form-label">Description</label>
 								<textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
 							</div>
 						<!--end form-->
 					</div>
 					<div class="modal-footer">
 						<button type="button"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 ">Cancel</button>
-						<button type="button" class="btn btn-success rounded-3 w-25">Save</button>
+						<button type="button" id="sumbit"  onclick="createTask()" class="btn btn-success rounded-3 w-25">Save</button>
 					</div>
 				</div>
 			</div>
@@ -374,5 +374,7 @@
 	<script src="assets/js/vendor.min.js"></script>
 	<script src="assets/js/app.min.js"></script>
 	<!-- ================== END core-js ================== -->
+	<script src="assets/js/data.js"></script>
+	<script src="assets/js/app.js"></script>
 </body>
 </html>
