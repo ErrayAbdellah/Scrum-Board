@@ -15,15 +15,16 @@
 
  ////les classes
  let todo = document.getElementById("to-do-tasks");
- let progress = document.getElementById("n-progress-tasks");
+ let progress = document.getElementById("in-progress-tasks");
  let done = document.getElementById("done-tasks");
-
-
-
 
  todo.innerHTML = "";
  progress.innerHTML = "";
- done.innerHTML = ' ';
+ done.innerHTML = "";
+
+    reloadTasks();
+
+
 
 
 
@@ -152,7 +153,40 @@ function initTaskForm() {
 }
 function reloadTasks() {
     // Remove tasks elements
-   
+    
+    
 
     // Set Task count
+    for(var i=0;i<tasks.length;i++)
+    {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+        reloadtask(i);
+    }
+    
 }
+
+function reloadtask(i)
+{
+   
+    
+    let cmpTodo = 0;
+    let cmpProgresse = 0;
+    let cmpDon = 0; 
+      
+        if(tasks[i]["status"]=="To Do") 
+        { 
+            todo.innerHTML += '<button class="border-1 border-secondary d-flex" style="background-color: #CAEBF2;"><div class="col-1"><i class="bi bi-question-circle text-success fa-2x"></i>				</div>								<div class="text-start col-11">									<div class="fw-bold">'+tasks[i]["title"]+'</div><div class=""><div class="text-secondary-300">#1 created in '+tasks[i]["date"]+'</div><div class="" title="'+tasks[i]["description"]+'">'+tasks[i]["description"].slice(0,55)+'...</div></div><div class=""><span class="btn btn-info rounded-pill">High</span>	<span class="btn btn-gray-500 rounded-pill">Feature</span></div></div></button>';
+            cmpTodo++;
+        }else if(tasks[i]["status"]=="In Progress")
+        {
+            progress.innerHTML += '<button class="border-1 border-secondary d-flex" style="background-color: #CAEBF2;"><div class="col-1"><i class="bi bi-question-circle text-success fa-2x"></i>				</div>								<div class="text-start col-11">									<div class="fw-bold">'+tasks[i]["title"]+'</div><div class=""><div class="text-secondary-300">#1 created in '+tasks[i]["date"]+'</div><div class="" title="'+tasks[i]["description"]+'">'+tasks[i]["description"].slice(0,55)+'...</div></div><div class=""><span class="btn btn-info rounded-pill">High</span>	<span class="btn btn-gray-500 rounded-pill">Feature</span></div></div></button>';
+            cmpProgresse++;
+        }else if(tasks[i]["status"]=="Done")
+        {
+            done.innerHTML += '<button class="border-1 border-secondary d-flex" style="background-color: #CAEBF2;"><div class="col-1"><i class="bi bi-question-circle text-success fa-2x"></i>				</div>								<div class="text-start col-11">									<div class="fw-bold">'+tasks[i]["title"]+'</div><div class=""><div class="text-secondary-300">#1 created in '+tasks[i]["date"]+'</div><div class="" title="'+tasks[i]["description"]+'">'+tasks[i]["description"].slice(0,55)+'...</div></div><div class=""><span class="btn btn-info rounded-pill">High</span>	<span class="btn btn-gray-500 rounded-pill">Feature</span></div></div></button>';
+            cmpDon++;
+        }
+      
+}
+
+    
+
