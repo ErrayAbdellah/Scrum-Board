@@ -12,4 +12,15 @@
 .ch:checked
 {
     background-color: #00ACAC;
+
+}
+
+
+.btnBtn
+{
+    background-color: #CAEBF2;
+}
+.btnBtn:hover
+{
+    background-color: #b8d2d7;
 }
