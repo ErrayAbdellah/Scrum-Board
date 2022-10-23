@@ -2,9 +2,7 @@
  * In this file app.js you will find all CRUD functions name.
  * 
  */
- let cmpTodo        = 0;
- let cmpProgresse   = 0;
- let cmpDon         = 0; 
+
  let cmptCreate     = 0;
  let title          = document.getElementById("titleIn")                    ;
  let type           = document.querySelectorAll("input[name='Type']")       ;
@@ -179,53 +177,46 @@ function initTaskForm() {
     // Hide all action buttons
 }
 
-function reloadTasks() {
+function reloadTasks() 
+{
+    let cmpTodo        = 0;
+    let cmpProgresse   = 0;
+    let cmpDon         = 0; 
     // Remove tasks elements
-    
     // Set Task count
+    cmptCreate =1;
+    console.log()
     for(let i=0;i<tasks.length;i++)
-    {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-        reloadtask(i);
-    }
-    
-}
-
-
-function reloadtask(i) 
-{    
-    // console.log(tasks.length) ;
-    // console.log(tasks[i]) ;
-    // console.log("here "+tasks.length) ;
-    cmptCreate++;
+    { 
    
     if(tasks[i]["status"]=="To Do") 
     { 
-    todo.innerHTML += `<button data-id="`+i+`" id="todoButton" onclick="reset(this)"class="btnBtn border-1 border-secondary d-flex" >
-                            <div class="col-1">
-                                <i class="bi bi-question-circle text-success fa-2x"></i>
-                            </div>		
-                            <div id="buttonStatus" hidden>To Do</div>						
-                            <div class="text-start col-11">									
-                                <div class="fw-bold" id="todoTitle">
-                                    `+tasks[i]["title"]+`
-                                </div>
-                                <div class="">
-                                    <div class="text-secondary-300">
-                                        #`+cmptCreate+` created in <span id="buttonDate">`+tasks[i]["date"]+`</span>
+        todo.innerHTML += `<button data-id="`+i+`" id="todoButton" onclick="reset(this)"class="btnBtn border-1 border-secondary d-flex" >
+                                <div class="col-1">
+                                    <i class="bi bi-question-circle text-success fa-2x"></i>
+                                </div>		
+                                <div id="buttonStatus" hidden>To Do</div>						
+                                <div class="text-start col-11">									
+                                    <div class="fw-bold" id="todoTitle">
+                                        `+tasks[i]["title"]+`
                                     </div>
-                                    <div class="" title="`+tasks[i]["description"]+`">
-                                        `+tasks[i]["description"].slice(0,55)+`...
+                                    <div class="">
+                                        <div class="text-secondary-300">
+                                            #`+cmptCreate+` created in <span id="buttonDate">`+tasks[i]["date"]+`</span>
+                                        </div>
+                                        <div class="" title="`+tasks[i]["description"]+`">
+                                            `+tasks[i]["description"].slice(0,55)+`...
+                                        </div>
+                                        <div id="buttonDescription" hidden>`+tasks[i]["description"]+`</div>
                                     </div>
-                                    <div id="buttonDescription" hidden>`+tasks[i]["description"]+`</div>
+                                    <div class="">
+                                    <span id="buttonPriority" class="btn btn-info rounded-pill">`+tasks[i]["priority"]+`</span>	
+                                    <span id="buttonType" class="btn btn-gray-500 rounded-pill">`+tasks[i]["type"]+`</span>
+                                    </div>
                                 </div>
-                                <div class="">
-                                <span id="buttonPriority" class="btn btn-info rounded-pill">`+tasks[i]["priority"]+`</span>	
-                                <span id="buttonType" class="btn btn-gray-500 rounded-pill">`+tasks[i]["type"]+`</span>
-                                </div>
-                            </div>
-                        </button>`;
-        cmpTodo++;
-        to_do_tasks_count.innerText = cmpTodo; 
+                            </button>`;
+            cmpTodo++;
+            to_do_tasks_count.innerText = cmpTodo; 
     }else if(tasks[i]["status"]=="In Progress")
     {
         progress.innerHTML += `<button data-id="`+i+`" onclick="reset(this)"class="btnBtn border-1 border-secondary d-flex" >
@@ -284,7 +275,9 @@ function reloadtask(i)
         cmpDon++;
         done_tasks_count.innerText =cmpDon;
     }
-
+    cmptCreate++;
+    }
+    
 }
     
 
@@ -334,7 +327,6 @@ function updateTask(item) {
     // GET TASK ATTRIBUTES FROM INPUTS
 
     
-
     let attTaks = item.getAttribute("data-id");
     let itemTasks = item.querySelector("button[data-id = '"+attTaks+"']");
     // Créez task object
@@ -347,25 +339,29 @@ function updateTask(item) {
             break;
         };
     };
+    
+    
     var TasksObject = 
     {
         title          :   title.value         ,
         type           :   radioChecked        ,
-        statuss        :   statuss.value       ,
+        status        :   statuss.value       ,
         priority       :   priority.value      ,
         date           :   date.value          ,
         description    :   description.value   ,
     }
-   
+    
+    console.log(attTaks);
     
     // Fermer Modal form
     tasks[attTaks] = TasksObject;
     // Refresh tasks
-    todo.innerHTML     = "";
-    progress.innerHTML = "";
-    done.innerHTML     = "";
-    reloadTasks();
+    todo.innerHTML     = "" ;
+    progress.innerHTML = "" ;
+    done.innerHTML     = "" ;
+   
+   
     console.log(tasks);
     // $('#modal-task').modal('hide');
-    
+     reloadTasks() ;
 }
