@@ -65,7 +65,13 @@ reloadTasks();
 // }
 
 
-
+function CleareForm()
+{
+    document.getElementById("formTask").reset();
+    document.getElementById("buttonCu").innerHTML = `
+                                                    <button type="button"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 ">Cancel</button>
+                                                    <button type="button" id="sumbit"  onclick="createTask()" class="btn btn-success rounded-3 w-25">Save</button>`
+}
 
 function createTask() {
     
@@ -154,15 +160,7 @@ function editTask(index) {
 
 
 
-function deleteTask() {
-    // Get index of task in the array
 
-    // Remove task from array by index splice function
-
-    // close modal form
-
-    // refresh tasks
-}
 
 function initTaskForm() {
     // Clear task form from data
@@ -179,13 +177,17 @@ function initTaskForm() {
 
 function reloadTasks() 
 {
+    
     let cmpTodo        = 0;
     let cmpProgresse   = 0;
     let cmpDon         = 0; 
+    todo.innerHTML     = "" ;
+    progress.innerHTML = "" ;
+    done.innerHTML     = "" ;
     // Remove tasks elements
     // Set Task count
     cmptCreate =1;
-    console.log()
+    console.log(tasks)
     for(let i=0;i<tasks.length;i++)
     { 
    
@@ -318,7 +320,7 @@ function reset(item)
     document.getElementById("buttonCu").innerHTML = `<button type="button" id="sumbit"   class="btn btn-success rounded-3 w-25" onclick="updateTask(this)" data-id="`+item.getAttribute('data-id')+`" >Update</button>`
     
     // Delete Button
-    //document.getElementById("buttonCu").innerHTML += `<button class = "btn btn-danger col-3 col-sm-3 col-md-2" type = "button" onclick="deleteTask(this)" data-id="`+element.getAttribute('data-id')+`">Delete</button>`
+    document.getElementById("buttonCu").innerHTML += `<button class = "btn btn-danger col-3 col-sm-3 col-md-2" type = "button" onclick="deleteTask(this)" data-id="`+item.getAttribute('data-id')+`">Delete</button>`
    
 }
 
@@ -328,7 +330,7 @@ function updateTask(item) {
 
     
     let attTaks = item.getAttribute("data-id");
-    let itemTasks = item.querySelector("button[data-id = '"+attTaks+"']");
+    // let itemTasks = item.querySelector("button[data-id = '"+attTaks+"']");
     // Créez task object
     let radioChecked;
     for(const i of type)
@@ -339,7 +341,7 @@ function updateTask(item) {
             break;
         };
     };
-    
+
     
     var TasksObject = 
     {
@@ -356,12 +358,26 @@ function updateTask(item) {
     // Fermer Modal form
     tasks[attTaks] = TasksObject;
     // Refresh tasks
-    todo.innerHTML     = "" ;
-    progress.innerHTML = "" ;
-    done.innerHTML     = "" ;
+    
    
    
     console.log(tasks);
     // $('#modal-task').modal('hide');
      reloadTasks() ;
+     $('#modal-task').modal('hide');
+}
+
+
+function deleteTask(item) {
+   
+    var taskId = item.getAttribute('data-id');
+
+    tasks.splice(taskId, 1);
+
+    $('#modal-task').modal('hide');
+    reloadTasks();
+    // close modal form
+    // refresh tasks
+    
+   
 }

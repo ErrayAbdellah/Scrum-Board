@@ -35,7 +35,7 @@
 
 
 				<div class="">
-					<button class="btn btn-success  rounded-pill"data-bs-toggle="modal" data-bs-target="#modal-task"> Add Task<i class="bi bi-plus"></i></button>
+					<button onclick="CleareForm()" class="btn btn-success rounded-pill"data-bs-toggle="modal" data-bs-target="#modal-task"> Add Task<i class="bi bi-plus"></i></button>
 				</div>
 			</div>
 			<div class="text-center text-lg-start" >
@@ -314,7 +314,7 @@
 	<!-- TASK MODAL -->
 		
 
-	<div class="modal fade" id="modal-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal fade"  id="modal-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content "style="background-color: #CAEBF2;">
 				<div class=" card-header bg-secondary text-center ">
@@ -322,57 +322,59 @@
 				</div>
 				<div class="modal-body">
 					<!--begin form-->
-					<div class="align-items-md-center ">
-						<div>
-							<label for="formGroupExampleInput" class="form-label">Title</label>
-							<input type="text" class="form-control" id="titleIn" placeholder="Example input placeholder">
-						</div>
-						<!-- radion Button -->
-						<div>
-								<label class="form-label">Type</label>
-								<div class="form-check">
-									<input class="form-check-input ch" type="radio" value="Feature" name="Type" id="flexRadioDefault1">
-									<label class="form-check-label text-secondary-500" for="flexRadioDefault1">
-									Feature
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input ch" type="radio" value="Bug" name="Type" id="flexRadioDefault2" checked>
-									<label class="form-check-label text-secondary-500" for="flexRadioDefault2">
-									Bug
-									</label>
-								</div>
-						</div>
-						<!-- end radion Button -->
+					<form id="formTask">
+						<div class="align-items-md-center ">
 							<div>
-								<label for="formGroupExampleInput" class="form-label">Status</label>
-								<select class="form-select" aria-label="Default select example" id="select1">
-									<option selected>Please select</option>
-									<option value="To Do">Todo</option>
-									<option value="In Progress">In Progress</option>
-									<option value="Done">Done</option>
-								</select>
-								<label for="formGroupExampleInput" class="form-label">Priority</label>
-								<select class="form-select" aria-label="Default select example" id="select2">
-									<option selected>Please select</option>
-									<option value="High">High</option>
-									<option value="Medium">Medium</option>
-									<option value="low">low</option>
-								</select>
+								<label for="formGroupExampleInput" class="form-label">Title</label>
+								<input type="text" class="form-control" id="titleIn" placeholder="Example input placeholder">
 							</div>
-							<!-- end select-->
+							<!-- radion Button -->
 							<div>
-									<label for="formGroupExampleInput" class="form-label">Date</label>
+									<label class="form-label">Type</label>
+									<div class="form-check">
+										<input class="form-check-input ch" type="radio" value="Feature" name="Type" id="flexRadioDefault1">
+										<label class="form-check-label text-secondary-500" for="flexRadioDefault1">
+										Feature
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input ch" type="radio" value="Bug" name="Type" id="flexRadioDefault2" checked>
+										<label class="form-check-label text-secondary-500" for="flexRadioDefault2">
+										Bug
+										</label>
+									</div>
+							</div>
+							<!-- end radion Button -->
 								<div>
-									<input type="date" class="form-control" id="date">
+									<label for="formGroupExampleInput" class="form-label">Status</label>
+									<select class="form-select" aria-label="Default select example" id="select1">
+										<option selected>Please select</option>
+										<option value="To Do">Todo</option>
+										<option value="In Progress">In Progress</option>
+										<option value="Done">Done</option>
+									</select>
+									<label for="formGroupExampleInput" class="form-label">Priority</label>
+									<select class="form-select" aria-label="Default select example" id="select2">
+										<option selected>Please select</option>
+										<option value="High">High</option>
+										<option value="Medium">Medium</option>
+										<option value="low">low</option>
+									</select>
 								</div>
-							</div>
-							<div class="mb-3">
-								<label for="exampleFormControlTextarea1" class="form-label">Description</label>
-								<textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-							</div>
-						<!--end form-->
-					</div>
+								<!-- end select-->
+								<div>
+										<label for="formGroupExampleInput" class="form-label">Date</label>
+									<div>
+										<input type="date" class="form-control" id="date">
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlTextarea1" class="form-label">Description</label>
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+								</div>
+							<!--end form-->
+						</div>
+					</form>
 					<div class="modal-footer" id="buttonCu">
 						<button type="button"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 ">Cancel</button>
 						<button type="button" id="sumbit"  onclick="createTask()" class="btn btn-success rounded-3 w-25">Save</button>
