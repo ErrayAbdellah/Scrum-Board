@@ -36,7 +36,7 @@ function CleareForm()
 function createTask() {
     
     initTaskForm();
-
+    
     let radioChecked;
     for(const i of type)
     {
@@ -66,21 +66,6 @@ function createTask() {
             //  reloadTasks();
 }
 
-function saveTask() {
-    // Recuperer task attributes a partir les champs input
-
-    // Créez task object
-
-    // Ajoutez object au Array
-
-    // refresh tasks
-    
-}
-
-function editTask(index) {
-
-}
-
 function initTaskForm() {
  
     todo.innerHTML      = "";
@@ -101,26 +86,26 @@ function reloadTasks()
     { 
         if(tasks[i]["status"]=="To Do") 
         { 
-         todo.innerHTML += `<button data-id="`+i+`" id="todoButton" onclick="reset(this)"class="btnBtn border-1 border-secondary d-flex" >
+         todo.innerHTML += `<button data-id="`+i+`" id="todoButton" onclick="editTask(this)"class="btnBtn border-1 border-secondary d-flex" draggable="true" >
                                 <div class="col-1">
                                     <i class="bi bi-question-circle text-success fa-2x"></i>
                                 </div>		
                                 <div id="buttonStatus" hidden>To Do</div>						
                                 <div class="text-start col-11">									
-                                    <div class="fw-bold" id="todoTitle">
+                                    <div class="fw-bold mt-1" id="todoTitle">
                                         `+tasks[i]["title"]+`
                                     </div>
-                                    <div class="">
+                                    <div class="my-1">
                                         <div class="text-secondary-300">
                                             #`+cmptCreate+` created in <span id="buttonDate">`+tasks[i]["date"]+`</span>
                                         </div>
-                                        <div class="" title="`+tasks[i]["description"]+`">
+                                        <div class="mt-1" title="`+tasks[i]["description"]+`">
                                             `+tasks[i]["description"].slice(0,55)+`...
                                         </div>
                                         <div id="buttonDescription" hidden>`+tasks[i]["description"]+`</div>
                                     </div>
-                                    <div class="">
-                                    <span id="buttonPriority" class="btn btn-info rounded-pill">`+tasks[i]["priority"]+`</span>	
+                                    <div class="my-1">
+                                    <span id="buttonPriority" class="btn btn-info rounded-pill me-3">`+tasks[i]["priority"]+`</span>	
                                     <span id="buttonType" class="btn btn-gray-500 rounded-pill">`+tasks[i]["type"]+`</span>
                                     </div>
                                 </div>
@@ -129,26 +114,26 @@ function reloadTasks()
             to_do_tasks_count.innerText = cmpTodo; 
         }else if(tasks[i]["status"]=="In Progress")
         {
-            progress.innerHTML += `<button data-id="`+i+`" onclick="reset(this)"class="btnBtn border-1 border-secondary d-flex" >
+            progress.innerHTML += `<button data-id="${i}" onclick="editTask(this)"class="btnBtn border-1 border-secondary d-flex" draggable="true">
                                     <div class="col-1">
                                         <i class="spinner-border spinner-border-sm text-success"></i> 
                                     </div>	
                                     <div id="buttonStatus" hidden>In Progress</div>						
                                     <div class="text-start col-11">									
-                                        <div class="fw-bold" id="todoTitle">
+                                        <div class="fw-bold mt-1" id="todoTitle">
                                             `+tasks[i]["title"]+`
                                         </div>
-                                        <div class="">
+                                        <div class="mt-1">
                                             <div class="text-secondary-300">
                                                 #`+cmptCreate+` created in <span id="buttonDate">`+tasks[i]["date"]+`</span>
                                             </div>
-                                            <div class="" title="`+tasks[i]["description"]+`">
+                                            <div class="mt-1" title="`+tasks[i]["description"]+`">
                                                 `+tasks[i]["description"].slice(0,55)+`...
                                             </div>
                                             <div id="buttonDescription" hidden>`+tasks[i]["description"]+`</div>
                                         </div>
-                                        <div class="">
-                                        <span id="buttonPriority" class="btn btn-info rounded-pill">`+tasks[i]["priority"]+`</span>	
+                                        <div class="my-1">
+                                        <span id="buttonPriority" class="btn btn-info rounded-pill me-3">`+tasks[i]["priority"]+`</span>	
                                         <span id="buttonType" class="btn btn-gray-500 rounded-pill">`+tasks[i]["type"]+`</span>
                                         </div>
                                     </div>
@@ -157,26 +142,26 @@ function reloadTasks()
             in_progress_tasks_count.innerText = cmpProgresse;
         }else if(tasks[i]["status"]=="Done")
         {
-            done.innerHTML += `<button data-id="`+i+`" onclick="reset(this)"class="btnBtn border-1 border-secondary d-flex" >
+            done.innerHTML += `<button data-id="`+i+`" onclick="editTask(this)"class="btnBtn border-1 border-secondary d-flex" draggable="true">
                                     <div class="col-1">
                                         <i class="bi bi-check-circle text-success fa-2x"></i> 
                                     </div>
                                     <div id="buttonStatus" hidden>Done</div>							
                                     <div class="text-start col-11">									
-                                        <div class="fw-bold" id="todoTitle">
+                                        <div class="fw-bold mt-1" id="todoTitle">
                                             `+tasks[i]["title"]+`
                                         </div>
-                                        <div class="">
+                                        <div class="mt-1">
                                             <div class="text-secondary-300">
                                                 #`+cmptCreate+` created in <span id="buttonDate">`+tasks[i]["date"]+`</span>
                                             </div>
-                                            <div class="" title="`+tasks[i]["description"]+`">
+                                            <div class="mt-1" title="`+tasks[i]["description"]+`">
                                                 `+tasks[i]["description"].slice(0,55)+`...
                                             </div>
                                             <div id="buttonDescription" hidden>`+tasks[i]["description"]+`</div>
                                         </div>
-                                        <div class="">
-                                            <span id="buttonPriority" class="btn btn-info rounded-pill">`+tasks[i]["priority"]+`</span>	
+                                        <div class="my-1">
+                                            <span id="buttonPriority" class="btn btn-info rounded-pill me-3">`+tasks[i]["priority"]+`</span>	
                                             <span id="buttonType" class="btn btn-gray-500 rounded-pill">`+tasks[i]["type"]+`</span>
                                         </div>
                                     </div>
@@ -184,14 +169,13 @@ function reloadTasks()
             cmpDon++;
             done_tasks_count.innerText =cmpDon;
         }
+
         cmptCreate++;
     }
 }
 
-function reset(item)
+function editTask(item)
 {
-    
-    
     var buttonObjet = {
         Title           : item.querySelector("#todoTitle").innerText         ,
         Type            : item.querySelector("#buttonType").innerText        ,
@@ -202,7 +186,6 @@ function reset(item)
     }
     
     title.value         = buttonObjet.Title         ;
-    // type.value          = buttonObjet.Type          ;
     priority.value      = buttonObjet.Priority      ;
     statuss.value       = buttonObjet.status        ;
     date.value          = buttonObjet.date          ;
@@ -245,7 +228,7 @@ function updateTask(item) {
     {
         title          :   title.value         ,
         type           :   radioChecked        ,
-        status        :   statuss.value       ,
+        status         :   statuss.value       ,
         priority       :   priority.value      ,
         date           :   date.value          ,
         description    :   description.value   ,
@@ -268,6 +251,4 @@ function deleteTask(item) {
         $('#modal-task').modal('hide');
         reloadTasks();
       } 
-    // close modal form
-    // refresh tasks
 }

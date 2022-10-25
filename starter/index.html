@@ -29,11 +29,6 @@
 					<li class="active"><a class="nav-link" href="#">Features</a></li>
 				</ol>
 			</nav>
-					<!-- BEGIN page-header -->
-					
-					<!-- END page-header -->
-
-
 				<div class="">
 					<button onclick="CleareForm()" class="btn btn-success rounded-pill"data-bs-toggle="modal" data-bs-target="#modal-task"> Add Task<i class="bi bi-plus"></i></button>
 				</div>
@@ -48,30 +43,28 @@
 					<div class="card bg-secondary "  style="width: 100%; " >
 						<div class="card-header bg-secondary text-center text-lg-start" >
 							<h4 class="text-light">To do (<span id="to-do-tasks-count">5</span>)</h4>
-						</div>
-
- 
-						<div class="row-cols-1 "  id="to-do-tasks">
+						</div> 
+						<div class="row-cols-1"  id="to-do-tasks" ondragstart="start()">
 							<!-- TO DO TASKS HERE -->
 
 
 
-							 <!-- <button class="border-1 border-secondary d-flex" style="background-color: #CAEBF2;">
+							 <button class="border-1 border-secondary d-flex " style="background-color: #CAEBF2;">
 								<div class="col-1">
 									<i class="bi bi-question-circle text-success fa-2x"></i>
 								</div>
-								<div class="text-start col-11">
+								<div class="text-start col-11 ">
 									<div class="fw-bold">Keep all the updated requirements in one place</div>
-									<div class="">
+									<div class="mt-1">
 										<div class="text-secondary-300">#1 created in 2022-10-08</div>
-										<div class="" title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly.">There is hardly anything more frustrating than having t...</div>
+										<div class="mt-1" title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly.">There is hardly anything more frustrating than having t...</div>
 									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
+									<div class="my-2">
+										<span class="btn btn-info rounded-pill me-3">High</span>
 										<span class="btn btn-gray-500 rounded-pill">Feature</span>
 									</div>
 								</div> 
-							</button> -->
+						<!-- 	</button> -->
 							<!-- <button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
 									<i class="bi bi-question-circle text-success fa-2x"></i> 
@@ -108,7 +101,6 @@
 									</div>
 								</div>
 							</button> -->
-
 							<!-- <button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
 								<div class="col-1">
 									<i class="bi bi-question-circle text-success fa-2x"></i> 
@@ -326,7 +318,7 @@
 						<div class="align-items-md-center ">
 							<div>
 								<label for="formGroupExampleInput" class="form-label">Title</label>
-								<input type="text" class="form-control" id="titleIn" placeholder="Example input placeholder">
+								<input type="text" class="form-control" id="titleIn" placeholder="Example input placeholder" required>
 							</div>
 							<!-- radion Button -->
 							<div>
@@ -347,7 +339,7 @@
 							<!-- end radion Button -->
 								<div>
 									<label for="formGroupExampleInput" class="form-label">Status</label>
-									<select class="form-select" aria-label="Default select example" id="select1">
+									<select class="form-select" aria-label="Default select example" id="select1" required>
 										<option selected>Please select</option>
 										<option value="To Do">Todo</option>
 										<option value="In Progress">In Progress</option>
@@ -365,12 +357,12 @@
 								<div>
 										<label for="formGroupExampleInput" class="form-label">Date</label>
 									<div>
-										<input type="date" class="form-control" id="date">
+										<input type="date" class="form-control" id="date" required>
 									</div>
 								</div>
 								<div class="mb-3">
 									<label for="exampleFormControlTextarea1" class="form-label">Description</label>
-									<textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="4" required></textarea>
 								</div>
 							<!--end form-->
 						</div>
