@@ -62,6 +62,7 @@ var tasks = [
         'date'          :   '2022-10-08',
         'description'   :   `It is always safer to assume less rather than more domain knowledge in the dev team. Therefore following the KISS principle and augmenting each description or acceptance criteria list with contextual/domain knowledge and details that might become relevant is highly recommended.`,
     },
+    /////////////////////////////////////////
     {
         'title'         :   'Describe edge cases and provide constraints',
         'type'          :   'Feature',
@@ -78,7 +79,7 @@ var tasks = [
         'date'          :   '2022-10-08',
         'description'   :   `If there is a long message to be displayed, just provide a copy for it somewhere in the description. Do not place it on mockups as it is always slower and more error-prone to re-type it than to copy-paste it.`,
     },
-    
+    /********************************************** */
     {
         'title'         :   'Describe steps to reproduce an issue',
         'type'          :   'Bug',
@@ -96,6 +97,7 @@ var tasks = [
         'description'   :   `to the affected account and services if possible. It might be hard to reproduce the exact environment on a local machine.`,
     },
     {
+        
         'title'         :   'Provide environment information',
         'type'          :   'Bug',
         'priority'      :   'High',
@@ -111,6 +113,7 @@ var tasks = [
         'date'          :   '2022-10-08',
         'description'   :   `as investigating those is usually the first step to take in resolving the problem.`,
     },
+    /////////////////////////////////*///////////
     {
         'title'         :   'Provide access to logs',
         'type'          :   'Bug',

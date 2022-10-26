@@ -1,3 +1,7 @@
+<?php 
+	include("scripts.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -60,8 +64,9 @@
 										<div class="mt-1" title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly.">There is hardly anything more frustrating than having t...</div>
 									</div>
 									<div class="my-2">
-										<span class="btn btn-info rounded-pill me-3">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Feature</span>
+										<!-- <span class="btn btn-info rounded-pill me-3">High</span> -->
+										<span class="badge rounded-pill bg-primary">High</span>
+										<span class="badge rounded-pill bg-primary">Feature</span>
 									</div>
 								</div> 
 						<!-- 	</button> -->
