@@ -48,97 +48,12 @@
 						<div class="card-header bg-secondary text-center text-lg-start" >
 							<h4 class="text-light">To do (<span id="to-do-tasks-count">5</span>)</h4>
 						</div> 
-						<div class="row-cols-1"  id="to-do-tasks" ondragstart="start()">
+						<div class="row-cols-1"  id="to-do-tasks" >
 							<!-- TO DO TASKS HERE -->
-
-
-
-							 <button class="border-1 border-secondary d-flex " style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi bi-question-circle text-success fa-2x"></i>
-								</div>
-								<div class="text-start col-11 ">
-									<div class="fw-bold">Keep all the updated requirements in one place</div>
-									<div class="mt-1">
-										<div class="text-secondary-300">#1 created in 2022-10-08</div>
-										<div class="mt-1" title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly.">There is hardly anything more frustrating than having t...</div>
-									</div>
-									<div class="my-2">
-										<!-- <span class="btn btn-info rounded-pill me-3">High</span> -->
-										<span class="badge rounded-pill bg-primary">High</span>
-										<span class="badge rounded-pill bg-primary">Feature</span>
-									</div>
-								</div> 
-						<!-- 	</button> -->
-							<!-- <button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi bi-question-circle text-success fa-2x"></i> 
-								</div>
-								<div class="text-start ">
-									<div class="fw-bold">Consider creating an acceptance criteria list</div>
-									<div class="">
-										<div class="text-secondary-300">#2 created in 2022-10-08</div>
-										<div class="" title="Descriptive requirements are very helpful when it comes to understanding the context of a problem, yet finally it is good to precisely specify what is expected. Thus the developer will not have to look for the actual requirements in a long, descriptive text but he will be able to easily get to the essence. One might find that sometimes — when acceptance criteria are well defined — there is little or no need for any additional information. Example:
-							a) User navigates to “/accounts” and clicks on red download CSV button
-							b) Popup appears with two buttons: “This year” and “Last year”
-							c) If user clicked on “Last year” download is initiated
-							d) CSV downloaded includes following columns…">Descriptive requirements are very helpful when it comes...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Feature</span>
-									</div>
-								</div>
-							</button> -->
-							<!-- <button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi bi-question-circle text-success fa-2x"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Provide examples, credentials, etc</div>
-									<div class="">
-										<div class="text-secondary-300">#3 created in 2022-10-08</div>
-										<div class="" title="If the expectation is to process or generate some file — attach an example of such a file. If the goal is to integrate what is being developed with some service, ensure your devs have access to this service and its documentation. This list could go on and on — the bottom line is — if there is something that our developer might make use of, try to foresee it and provide them with (access to) it.">If the expectation is to process or generate some file ...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Feature</span>
-									</div>
-								</div>
-							</button> -->
-							<!-- <button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi bi-question-circle text-success fa-2x"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Annotate</div>
-									<div class="">
-										<div class="text-secondary-300">#4 created in 2022-10-08</div>
-										<div class="" title="The mockup provided can sometimes be confusing for developers. Especially if it contains much more content than the scope of the task described. Drop a couple of arrows, outlines and annotations here and there to emphasize what are the important parts of the mockup from the task requirements perspective.">The mockup provided can sometimes be confusing for deve...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill ">High</span>
-										<span class="btn btn-gray-500 rounded-pill ">Feature</span>
-									</div>
-								</div>
-							</button>
-
-							<button class="border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi  bi-question-circle text-success fa-2x"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Use charts and diagrams</div>
-									<div class="">
-										<div class="text-secondary-300">#5 created in 2022-10-08</div>
-										<div class="" title="While it is not always necessary, sometimes it might be beneficial to prepare a flowchart, a block diagram or some other kind of concept visualization that will render it easy for the developer to comprehend the task and its scope.">While it is not always necessary, sometimes it might be...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Feature</span>
-									</div>
-								</div>
-							</button> -->
+							<?php 
+								
+								getTasks(1,0);
+								?>
 
 						</div>
 					</div>
@@ -151,72 +66,9 @@
 						</div>
 						<div class="row-cols-1"  id="in-progress-tasks">
 							<!-- IN PROGRESS TASKS HERE -->
-
-<!-- 
-							<button class="btnBtn border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="spinner-border spinner-border-sm text-success"></i> 
-								</div>
-								<div class="text-start col-11">
-									<div class="fw-bold">Describe steps to reproduce an issue</div>
-									<div class="">
-										<div class="text-secondary-300">#6 created in 2022-10-08</div>
-										<div class="" title="including as many details as possible.">including as many details as possible.</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Bug</span>
-									</div>
-								</div>
-							</button>
-							<button class="btnBtn border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="spinner-border spinner-border-sm text-success"></i> 
-								</div>
-								<div class="text-start col-11">
-									<div class="fw-bold">Provide access</div>
-									<div class="">
-										<div class="text-secondary-300">#7 created in 2022-10-08</div>
-										<div class="" title="to the affected account and services if possible. It might be hard to reproduce the exact environment on a local machine.">to the affected account and services if possible. It mi...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Bug</span>
-									</div>
-								</div>
-							</button>
-							<button class="btnBtn border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="spinner-border spinner-border-sm text-success"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Provide environment information</div>
-									<div class="">
-										<div class="text-secondary-300">#8 created in 2022-10-08</div>
-										<div class="" title="i.e., browser version, operating system version etc. Sometimes a list of installed browser plugins and extensions might be helpful as well.">i.e., browser version, operating system version etc. So...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Bug</span>
-									</div>
-								</div>
-							</button>
-							<button class="btnBtn border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="spinner-border spinner-border-sm text-success"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Provide a link to an exception and/or a stack trace</div>
-									<div class="">
-										<div class="text-secondary-300">#9 created in 2022-10-08</div>
-										<div class="" title="as investigating those is usually the first step to take in resolving the problem.">as investigating those is usually the first step to tak...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Bug</span>
-									</div>
-								</div>
-							</button> -->
+							<?php 
+								getTasks(0,1);
+								?>
 						</div>
 					</div>
 				</div>
@@ -229,71 +81,10 @@
 						<div class="row-cols-1" id="done-tasks">
 							<!-- DONE TASKS HERE -->
 
-
-							<!-- <button class="btnBtn border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi bi-check-circle text-success fa-2x"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Provide access to logs</div>
-									<div class="">
-										<div class="text-secondary-300">#10 created in 2022-10-08</div>
-										<div class="" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">as they can be helpful in reproducing the steps that ca...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Bug</span>
-									</div>
-								</div>
-							</button>
-							<button class="btnBtn border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi bi-check-circle text-success fa-2x"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Provide access to the affected server or database dump</div>
-									<div class="">
-										<div class="text-secondary-300">#11 created in 2022-10-08</div>
-										<div class="" title="If it is possible and when it does not violate security policies, it is usually helpful for the developer to access the original data that might have played a role in the problem.">If it is possible and when it does not violate security...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Bug</span>
-									</div>
-								</div>
-							</button>
-							<button class=" btnBtn border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi bi-check-circle text-success fa-2x"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Make a screencast</div>
-									<div class="">
-										<div class="text-secondary-300">#12 created in 2022-10-08</div>
-										<div class="" title="It is not always necessary, but many times a short screencast (or at least a screenshot) says more than a thousand words. While working on MacOS you can use QuickTime Player for the purpose but there are plenty of tools available for other operating systems as well.">It is not always necessary, but many times a short scre...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Bug</span>
-									</div>
-								</div>
-							</button>
-							<button  class=" btnBtn border-1 border-secondary d-flex"style="background-color: #CAEBF2;">
-								<div class="col-1">
-									<i class="bi bi-check-circle text-success fa-2x"></i> 
-								</div>
-								<div class="text-start">
-									<div class="fw-bold">Provide contact information</div>
-									<div class="">
-										<div class="text-secondary-300">#13 created in 2022-10-08</div>
-										<div class="" title="of the person that reported the bug. This will not always be possible, but in some cases it might be advantageous and most effective if a developer can have a chat with a person that actually experienced the bug, especially if the steps to reproduce a problem are not deterministic.">of the person that reported the bug. This will not alwa...</div>
-									</div>
-									<div class="">
-										<span class="btn btn-info rounded-pill">High</span>
-										<span class="btn btn-gray-500 rounded-pill">Bug</span>
-									</div>
-								</div>
-							</button> -->
+							<?php 
+								
+							?>
+							
 						</div>
 					</div>
 				</div>

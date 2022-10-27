@@ -4,10 +4,9 @@
 
 use LDAP\Result;
 
-    $con = new mysqli("localhost","root","","youcodescumboard");
-    $qry = $con->prepare("select * from tasks");
-    $qry->execute();
-    $result = $qry->get_result();
-
+    $con = mysqli_connect("localhost","root","","youcodescumboard");
+    
+    $qry = mysqli_query($con,"select * from tasks");
+    
     
 ?>
