@@ -174,41 +174,41 @@
 //     }
 // }
 
-// function editTask(item)
-// {
-//     var buttonObjet = {
-//         Title           : item.querySelector("#todoTitle").innerText         ,
-//         Type            : item.querySelector("#buttonType").innerText        ,
-//         Priority        : item.querySelector("#buttonPriority").innerText    ,
-//         status          : item.querySelector("#buttonStatus").innerText      ,
-//         date            : item.querySelector("#buttonDate").innerText        ,    
-//         description     : item.querySelector("#buttonDescription").innerText ,
-//     }
+function editTask(item)
+{
+    // var buttonObjet = {
+    //     Title           : item.querySelector("#todoTitle").innerText         ,
+    //     Type            : item.querySelector("#buttonType").innerText        ,
+    //     Priority        : item.querySelector("#buttonPriority").innerText    ,
+    //     status          : item.querySelector("#buttonStatus").innerText      ,
+    //     date            : item.querySelector("#buttonDate").innerText        ,    
+    //     description     : item.querySelector("#buttonDescription").innerText ,
+    // }
     
-//     title.value         = buttonObjet.Title         ;
-//     priority.value      = buttonObjet.Priority      ;
-//     statuss.value       = buttonObjet.status        ;
-//     date.value          = buttonObjet.date          ;
-//     description.value   = buttonObjet.description   ;
+    // title.value         = buttonObjet.Title         ;
+    // priority.value      = buttonObjet.Priority      ;
+    // statuss.value       = buttonObjet.status        ;
+    // date.value          = buttonObjet.date          ;
+    // description.value   = buttonObjet.description   ;
 
-//     if(buttonObjet.Type==="Feature")
-//     {
-//       document.querySelector("#flexRadioDefault1").checked = true ;
+    // if(buttonObjet.Type==="Feature")
+    // {
+    //   document.querySelector("#flexRadioDefault1").checked = true ;
 
-//     }else if(buttonObjet.Type==="Bug")
-//     {
-//         document.querySelector("#flexRadioDefault2").checked = true ;
-//     }
+    // }else if(buttonObjet.Type==="Bug")
+    // {
+    //     document.querySelector("#flexRadioDefault2").checked = true ;
+    // }
 
-//     $('#modal-task').modal('show');
+    //$('#modal-task').modal('show');
 
 
-//     // Update Button
-//     document.getElementById("buttonCu").innerHTML = `<button type="button" id="sumbit"   class="btn btn-success rounded-3 w-25" onclick="updateTask(this)" data-id="`+item.getAttribute('data-id')+`" >Update</button>`
+    // Update Button
+    // document.getElementById("buttonCu").innerHTML = `<button type="button" id="sumbit"   class="btn btn-success rounded-3 w-25" onclick="updateTask(this)" data-id="`+item.getAttribute('data-id')+`" >Update</button>`
     
-//     // Delete Button
-//     document.getElementById("buttonCu").innerHTML += `<button type="button" id="sumbit"   class="btn btn-danger rounded-3 w-25" onclick="deleteTask(this)" data-id="`+item.getAttribute('data-id')+`">Delete</button>`
-// }
+    // // Delete Button
+    // document.getElementById("buttonCu").innerHTML += `<button type="button" id="sumbit"   class="btn btn-danger rounded-3 w-25" onclick="deleteTask(this)" data-id="`+item.getAttribute('data-id')+`">Delete</button>`
+}
 
 // function updateTask(item) {
 //     // GET TASK ATTRIBUTES FROM INPUTS    

@@ -46,13 +46,12 @@
 				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"  >
 					<div class="card bg-secondary "  style="width: 100%; " >
 						<div class="card-header bg-secondary text-center text-lg-start" >
-							<h4 class="text-light">To do (<span id="to-do-tasks-count">5</span>)</h4>
+							<h4 class="text-light">To do (<span id="to-do-tasks-count"><?php cmp(1) ;?></span>)</h4>
 						</div> 
 						<div class="row-cols-1"  id="to-do-tasks" >
 							<!-- TO DO TASKS HERE -->
 							<?php 
-								
-								getTasks(1,0);
+								getTasks(1);
 								?>
 
 						</div>
@@ -61,13 +60,13 @@
 				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"    >
 					<div  class="card bg-secondary"  style="width: 100%; " >
 						<div class="card-header  bg-secondary text-center text-lg-start">
-							<h4 class="text-light">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
+							<h4 class="text-light">In Progress (<span id="in-progress-tasks-count"><?php cmp(2) ;?></span>)</h4>
 
 						</div>
 						<div class="row-cols-1"  id="in-progress-tasks">
 							<!-- IN PROGRESS TASKS HERE -->
 							<?php 
-								getTasks(0,1);
+								getTasks(2);
 								?>
 						</div>
 					</div>
@@ -75,14 +74,14 @@
 				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"  >
 					<div   class="card bg-secondary"   style="width: 100%; ">
 						<div class="card-header bg-secondary text-center text-lg-start">
-							<h4 class="text-light">Done (<span id="done-tasks-count">4</span>)</h4>
+							<h4 class="text-light">Done (<span id="done-tasks-count"><?php cmp(3) ;?></span>)</h4>
 
 						</div>
 						<div class="row-cols-1" id="done-tasks">
 							<!-- DONE TASKS HERE -->
 
 							<?php 
-								
+								getTasks(3);
 							?>
 							
 						</div>
@@ -91,7 +90,6 @@
 			</div>
 		</div>
 		<!-- END #content -->
-		
 		
 		<!-- BEGIN scroll-top-btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
@@ -110,23 +108,24 @@
 				</div>
 				<div class="modal-body">
 					<!--begin form-->
-					<form id="formTask">
+					
+					<form action="scripts.php" method="POST"  >
 						<div class="align-items-md-center ">
 							<div>
 								<label for="formGroupExampleInput" class="form-label">Title</label>
-								<input type="text" class="form-control" id="titleIn" placeholder="Example input placeholder" required>
+								<input type="text" name="InTitle" class="form-control" id="titleIn" placeholder="Example input placeholder" required>
 							</div>
 							<!-- radion Button -->
 							<div>
 									<label class="form-label">Type</label>
 									<div class="form-check">
-										<input class="form-check-input ch" type="radio" value="Feature" name="Type" id="flexRadioDefault1">
+										<input class="form-check-input ch" type="radio" value="1" name="Type" id="flexRadioDefault1">
 										<label class="form-check-label text-secondary-500" for="flexRadioDefault1">
 										Feature
 										</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input ch" type="radio" value="Bug" name="Type" id="flexRadioDefault2" checked>
+										<input class="form-check-input ch" type="radio" value="2" name="Type" id="flexRadioDefault2" checked>
 										<label class="form-check-label text-secondary-500" for="flexRadioDefault2">
 										Bug
 										</label>
@@ -135,38 +134,36 @@
 							<!-- end radion Button -->
 								<div>
 									<label for="formGroupExampleInput" class="form-label">Status</label>
-									<select class="form-select" aria-label="Default select example" id="select1" required>
+									<select class="form-select" name ="status" aria-label="Default select example" id="select1" required>
 										<option selected>Please select</option>
-										<option value="To Do">Todo</option>
-										<option value="In Progress">In Progress</option>
-										<option value="Done">Done</option>
+										<option value="1">Todo</option>
+										<option value="2">In Progress</option>
+										<option value="3">Done</option>
 									</select>
 									<label for="formGroupExampleInput" class="form-label">Priority</label>
-									<select class="form-select" aria-label="Default select example" id="select2">
+									<select class="form-select" name="Priority" aria-label="Default select example" id="select2">
 										<option selected>Please select</option>
-										<option value="High">High</option>
-										<option value="Medium">Medium</option>
-										<option value="low">low</option>
+										<option value="1">High</option>
+										<option value="2">Medium</option>
+										<option value="3">low</option>
 									</select>
 								</div>
 								<!-- end select-->
 								<div>
 										<label for="formGroupExampleInput" class="form-label">Date</label>
-									<div>
-										<input type="date" class="form-control" id="date" required>
-									</div>
+										<input type="date" name="date" class="form-control" id="date" required>
 								</div>
 								<div class="mb-3">
 									<label for="exampleFormControlTextarea1" class="form-label">Description</label>
-									<textarea class="form-control" id="exampleFormControlTextarea1" rows="4" required></textarea>
+									<textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="4" required></textarea>
 								</div>
 							<!--end form-->
 						</div>
+						<div class="modal-footer" id="buttonCu">
+							<input type="submit"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 "  value="Cancel">
+							<input type="submit" id="sumbit"  class="btn btn-success rounded-3 w-25" name="save" value="Save">
+						</div>
 					</form>
-					<div class="modal-footer" id="buttonCu">
-						<button type="button"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 ">Cancel</button>
-						<button type="button" id="sumbit"  onclick="createTask()" class="btn btn-success rounded-3 w-25">Save</button>
-					</div>
 				</div>
 			</div>
 		</div>	
