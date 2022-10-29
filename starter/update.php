@@ -32,6 +32,7 @@
                         <!--begin form-->
                         <?php 
                             $id = $_GET['id'];
+                            $_SESSION['id'] = $id ;
                             $con = $GLOBALS['con'];
 
                             $result = mysqli_query($con , "SELECT * FROM tasks WHERE id = ".$id);
@@ -89,8 +90,8 @@
                                 <!--end form-->
                             </div>
                             <div class="modal-footer" id="buttonCu">
-                                <input type="submit"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 "  value="Cancel">
-                                <input type="submit" id="sumbit"  class="btn btn-success rounded-3 w-25" name="save" value="Save">
+                                <input type="submit"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 " name="delete" value="Delete">
+                                <input type="submit" id="sumbit"  class="btn btn-success rounded-3 w-25" name="update" value="Update">
                             </div>
                         </form>
                     </div>
@@ -105,8 +106,6 @@
 	<script src="assets/js/app.js"></script>
 </body>
 </html>
-
-
 
 
 

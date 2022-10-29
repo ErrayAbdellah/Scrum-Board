@@ -16,7 +16,7 @@
     // tasks-count
     function cmp($test)
     {
-        foreach( array_values($GLOBALS['tasks'])  as $row  )
+       foreach( array_values($GLOBALS['tasks'])  as $row  )
             {
                 if($row['status_id']==1 && $test == 1){
                      $GLOBALS['todo']++;
@@ -31,13 +31,13 @@
             switch($test)
             {
                 case 1: 
-                    echo $GLOBALS['todo'];
+                    echo @$GLOBALS['todo'];
                     break;
                 case 2:
-                    echo $GLOBALS['inProgress'];
+                    echo @$GLOBALS['inProgress'];
                     break;
                 case 3:
-                    echo $GLOBALS['done'];
+                    echo @$GLOBALS['done'];
                     break;
             }
 
@@ -81,6 +81,7 @@
                             </div> 
                         </button>
                     <?php
+                    
                 }elseif($row['status_id']==2 && $test==2 ){
                     $qryType = mysqli_fetch_assoc( mysqli_query($con,"select type.name FROM tasks ,type WHERE tasks.type_id = type.id && tasks.id =".$row['id'])) ;
                     $type = $qryType["name"] ;
@@ -107,6 +108,7 @@
                             </div> 
                         </button>
                     <?php
+                    
                 }elseif($row['status_id']==3  && $test ==3){
                    
                     $qryType = mysqli_fetch_assoc( mysqli_query($con,"select type.name FROM tasks ,type WHERE tasks.type_id = type.id && tasks.id =".$row['id'])) ;
@@ -132,6 +134,7 @@
                             </div>
                         </button>
                     <?php
+                    
                 }
             }
         //echo "Fetch all tasks";
@@ -155,7 +158,17 @@
     function updateTask()
     {
         //CODE HERE
+        $con = $GLOBALS['con'];
         //SQL UPDATE
+        $title  = $_POST['InTitle'];
+        $type  = $_POST['Type'];
+        $Priority  = $_POST['Priority'];
+        $status  = $_POST['status'];
+        $date  = $_POST['date'];
+        $description  = $_POST['description'];
+        
+        $update = "UPDATE `tasks` SET `title`='$title',`type_id`=$type,`priority_id`=$Priority,`status_id`=$status,`task_datetime`='$date',`description`='$description' WHERE id =". $_SESSION['id'] ;
+        mysqli_query($con,$update);
         $_SESSION['message'] = "Task has been updated successfully !";
 		header('location: index.php');
     }
@@ -163,8 +176,12 @@
     function deleteTask()
     {
         //CODE HERE
+        $con = $GLOBALS['con'];
         //SQL DELETE
         $_SESSION['message'] = "Task has been deleted successfully !";
+
+        $delete = "DELETE FROM `tasks` WHERE id =".$_SESSION['id'];
+        mysqli_query($con,$delete);
 		header('location: index.php');
     }
 
