@@ -4,7 +4,7 @@
     //SESSSION IS A WAY TO STORE DATA TO BE USED ACROSS MULTIPLE PAGES
     session_start();
 
-    //ROUTING
+//ROUTING
     if(isset($_POST['save']))        saveTask();
     if(isset($_POST['update']))      updateTask();
     if(isset($_POST['delete']))      deleteTask();
@@ -64,7 +64,7 @@
                      $id = $row['id'];
                     ?>
                     
-                        <button class="border-1 border-secondary d-flex btnBtn"  onclick="location.href='update.php?id=<?php echo $id; ?>'">
+                        <button class="border-1 border-secondary d-flex btnBtn"  onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                             <div class="col-1">
                                 <i class="bi bi-question-circle text-success fa-2x"></i>
                             </div>
@@ -82,7 +82,8 @@
                         </button>
                     <?php
                     
-                }elseif($row['status_id']==2 && $test==2 ){
+                }elseif($row['status_id']==2 && $test==2 )
+                {
                     $qryType = mysqli_fetch_assoc( mysqli_query($con,"select type.name FROM tasks ,type WHERE tasks.type_id = type.id && tasks.id =".$row['id'])) ;
                     $type = $qryType["name"] ;
                     $qryPr = mysqli_fetch_assoc( mysqli_query($con,"select priorities.name FROM tasks ,priorities WHERE tasks.priority_id = priorities.id && tasks.id =".$row['id'])) ;
@@ -90,7 +91,7 @@
                     $id = $row['id'];
                     ?>
                         
-                        <button class="border-1 border-secondary d-flex btnBtn"  onclick="location.href='update.php?id=<?php echo $id; ?>'"> 
+                        <button class="border-1 border-secondary d-flex btnBtn"  onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                        
                             <div class="col-1">
                                 <i class="spinner-border spinner-border-sm text-success"></i> 
@@ -109,7 +110,8 @@
                         </button>
                     <?php
                     
-                }elseif($row['status_id']==3  && $test ==3){
+                }elseif($row['status_id']==3  && $test ==3)
+                {
                    
                     $qryType = mysqli_fetch_assoc( mysqli_query($con,"select type.name FROM tasks ,type WHERE tasks.type_id = type.id && tasks.id =".$row['id'])) ;
                     $type = $qryType["name"] ;
@@ -117,7 +119,7 @@
                     $priority = $qryPr["name"] ;
                     $id = $row['id'];
                     ?>
-                        <button class="btnBtn border-1 border-secondary d-flex"   onclick="location.href='update.php?id=<?php echo $id; ?>'">
+                        <button class="btnBtn border-1 border-secondary d-flex"  onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                             <div class="col-1">
                                 <i class="bi bi-check-circle text-success fa-2x"></i> 
                             </div>		
@@ -157,17 +159,19 @@
 
     function updateTask()
     {
+        $hiddenId = $_POST['hiddenId'];
+        //die($hiddenId);
         //CODE HERE
         $con = $GLOBALS['con'];
         //SQL UPDATE
-        $title  = $_POST['InTitle'];
-        $type  = $_POST['Type'];
-        $Priority  = $_POST['Priority'];
-        $status  = $_POST['status'];
-        $date  = $_POST['date'];
-        $description  = $_POST['description'];
+        $title  = $_POST['titleU'];
+        $type  = $_POST['TypeU'];
+        $Priority  = $_POST['PriorityU'];
+        $status  = $_POST['statusU'];
+        $date  = $_POST['dateU'];
+        $description  = $_POST['descriptionU'];
         
-        $update = "UPDATE `tasks` SET `title`='$title',`type_id`=$type,`priority_id`=$Priority,`status_id`=$status,`task_datetime`='$date',`description`='$description' WHERE id =". $_SESSION['id'] ;
+        $update = "UPDATE `tasks` SET `title`='$title',`type_id`=$type,`priority_id`=$Priority,`status_id`=$status,`task_datetime`='$date',`description`='$description' WHERE id =". $hiddenId;
         mysqli_query($con,$update);
         $_SESSION['message'] = "Task has been updated successfully !";
 		header('location: index.php');
@@ -176,13 +180,13 @@
     function deleteTask()
     {
         //CODE HERE
+        $hiddenId = $_POST['hiddenId'];
         $con = $GLOBALS['con'];
         //SQL DELETE
         $_SESSION['message'] = "Task has been deleted successfully !";
 
-        $delete = "DELETE FROM `tasks` WHERE id =".$_SESSION['id'];
+        $delete = "DELETE FROM `tasks` WHERE id =".$hiddenId;
         mysqli_query($con,$delete);
 		header('location: index.php');
     }
-
 ?>
