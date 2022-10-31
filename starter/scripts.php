@@ -147,13 +147,14 @@
         //CODE HERE
         $con = $GLOBALS['con'];
         //SQL INSERT
-        $_SESSION['message'] = "Task has been added successfully !";
+
          $insert = " INSERT INTO `tasks`(`title`, `type_id`, `priority_id`, `status_id`, `task_datetime`, `description`) 
                     VALUES ('".$_POST['InTitle']."',".$_POST['Type'].",".$_POST['Priority'].",".$_POST['status'].",'".$_POST['date']."','".$_POST['description']."')";
         mysqli_query($con ,$insert);
-        //echo "'".$_POST['InTitle']."',".$_POST['Type'].",".$_POST['Priority'].",".$_POST['status'].",'".$_POST['date']."','".$_POST['description']."'";
-		 header('location: index.php');
-        //echo "<h1> Hiiiiiiiiiiiiiiiiiiiiiii <h1>";
+        $_SESSION['message'] = "Task has been added successfully !";
+        header('location: index.php');
+
+
 
     }
 

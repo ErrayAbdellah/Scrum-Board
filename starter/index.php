@@ -42,6 +42,16 @@
 					Scrum Board 
 				</h1>
 			</div>
+            <?php if (isset($_SESSION['message'])): ?>
+                <div class="alert alert-green alert-dismissible fade show">
+                    <strong>Success!</strong>
+                    <?php
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                    ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            <?php endif ?>
 			<div class="row justify-content-around">
 				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"  >
 					<div class="card bg-secondary "  style="width: 100%; " >
