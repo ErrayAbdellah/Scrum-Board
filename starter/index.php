@@ -58,7 +58,7 @@
 						<div class="card-header bg-secondary text-center text-lg-start" >
 							<h4 class="text-light">To do (<span id="to-do-tasks-count"><?php cmp(1) ;?></span>)</h4>
 						</div> 
-						<div class="row-cols-1"  id="to-do-tasks" >
+						<div class="row-cols-1 tas"  id="to-do-tasks" ondragover="letDrag()" ondrop="dropTodo()">
 							<!-- TO DO TASKS HERE -->
 							<?php 
 								getTasks(1);
@@ -73,7 +73,7 @@
 							<h4 class="text-light">In Progress (<span id="in-progress-tasks-count"><?php cmp(2) ;?></span>)</h4>
 
 						</div>
-						<div class="row-cols-1"  id="in-progress-tasks">
+						<div class="row-cols-1 tas"  id="in-progress-tasks" ondragover="letDrag()" ondrop="dropInProgresse()">
 							<!-- IN PROGRESS TASKS HERE -->
 							<?php 
 								getTasks(2);
@@ -87,7 +87,7 @@
 							<h4 class="text-light">Done (<span id="done-tasks-count"><?php cmp(3) ;?></span>)</h4>
 
 						</div>
-						<div class="row-cols-1" id="done-tasks">
+						<div class="row-cols-1 tas" id="done-tasks" ondragover="letDrag()" ondrop="dropDone()">
 							<!-- DONE TASKS HERE -->
 
 							<?php 
@@ -119,7 +119,7 @@
 				<div class="modal-body">
 					<!--begin form-->
 					
-					<form action="scripts.php" method="POST"  >
+					<form action="scripts.php" method="POST"  id="formTask" >
 						<div class="align-items-md-center ">
 							<div>
 								<label for="formGroupExampleInput" class="form-label">Title</label>
@@ -243,7 +243,7 @@
                         <input type="text" id="hiddenId" name="hiddenId" hidden>
                         <div class="modal-footer" id="buttonCu">
 
-                            <input type="submit"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 " name="delete" value="Delete">
+                            <input type="submit"data-bs-dismiss="modal" class="btn btn-danger rounded-3 w-25 " value="Delete" name="delete">
                             <input type="submit" id="sumbit"  class="btn btn-success rounded-3 w-25" name="update" value="Update">
                         </div>
                     </form>

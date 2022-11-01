@@ -64,9 +64,10 @@
                      $id = $row['id'];
                     ?>
                     
-                        <button class="border-1 border-secondary d-flex btnBtn"  onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
+                        <button class="border-1 border-secondary d-flex btnBtn" ondrag="drag(event)" id="<?php echo $id; ?>"
+                        draggable="true" onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                             <div class="col-1">
-                                <i class="bi bi-question-circle text-success fa-2x"></i>
+                            <i class="bi bi-question-circle text-success fa-2x"></i>
                             </div>
                             <div class="text-start col-11 ">
                                 <div class="fw-bold mt-1"><?php echo $row['title']; ?></div>
@@ -91,7 +92,8 @@
                     $id = $row['id'];
                     ?>
                         
-                        <button class="border-1 border-secondary d-flex btnBtn"  onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
+                        <button class="border-1 border-secondary d-flex btnBtn" ondrag="drag(event)" draggable="true" id="<?php echo $id; ?>"
+                        onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                        
                             <div class="col-1">
                                 <i class="spinner-border spinner-border-sm text-success"></i> 
@@ -119,7 +121,8 @@
                     $priority = $qryPr["name"] ;
                     $id = $row['id'];
                     ?>
-                        <button class="btnBtn border-1 border-secondary d-flex"  onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
+                        <button class="btnBtn border-1 border-secondary d-flex" ondrag="drag(event)" draggable="true"  id="<?php echo $id; ?>"
+                        onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                             <div class="col-1">
                                 <i class="bi bi-check-circle text-success fa-2x"></i> 
                             </div>		
