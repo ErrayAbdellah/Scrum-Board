@@ -168,12 +168,12 @@
         //CODE HERE
         $con = $GLOBALS['con'];
         //SQL UPDATE
-        $title  = $_POST['titleU'];
-        $type  = $_POST['TypeU'];
-        $Priority  = $_POST['PriorityU'];
-        $status  = $_POST['statusU'];
-        $date  = $_POST['dateU'];
-        $description  = $_POST['descriptionU'];
+        $title  = $_POST['InTitle'];
+        $type  = $_POST['Type'];
+        $Priority  = $_POST['Priority'];
+        $status  = $_POST['status'];
+        $date  = $_POST['date'];
+        $description  = $_POST['description'];
         
         $update = "UPDATE `tasks` SET `title`='$title',`type_id`=$type,`priority_id`=$Priority,`status_id`=$status,`task_datetime`='$date',`description`='$description' WHERE id =". $hiddenId;
         mysqli_query($con,$update);
