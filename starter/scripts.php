@@ -13,35 +13,12 @@
     $GLOBALS['inProgress']  = 0 ;
     $GLOBALS['done']        = 0 ;
 
-    // tasks-count
-    function cmp($test)
-    {
-       foreach( array_values($GLOBALS['tasks'])  as $row  )
-            {
-                if($row['status_id']==1 && $test == 1){
-                     $GLOBALS['todo']++;
-                }elseif($row['status_id']==2 && $test==2 ){
-                    $GLOBALS['inProgress']++;
-                }elseif($row['status_id']==3  && $test ==3){
-                     $GLOBALS['done']++;
-                }
-
-            }
-
-            switch($test)
-            {
-                case 1: 
-                    echo @$GLOBALS['todo'];
-                    break;
-                case 2:
-                    echo @$GLOBALS['inProgress'];
-                    break;
-                case 3:
-                    echo @$GLOBALS['done'];
-                    break;
-            }
-
-    }
+    $qry1 = mysqli_fetch_assoc(mysqli_query($con , "SELECT COUNT(*) as 'cmt' FROM tasks WHERE status_id = 1"));
+    $cmtTodo = $qry1['cmt'];
+    $qry2 = mysqli_fetch_assoc(mysqli_query($con , "SELECT COUNT(*) as 'cmt' FROM tasks WHERE status_id = 2"));
+    $cmtInProgresse = $qry2['cmt'];
+    $qry3= mysqli_fetch_assoc(mysqli_query($con , "SELECT COUNT(*) as 'cmt' FROM tasks WHERE status_id = 3"));
+    $cmtDone = $qry3['cmt'];    
    
 
     function getTasks($test)
@@ -54,7 +31,7 @@
 
         foreach( array_values($GLOBALS['tasks'])  as $row  )
             {
-                if($row['status_id']==1 && $test == 1)
+                if($row['status_id'] == $test)
                 { 
                   
                      $qryType = mysqli_fetch_assoc( mysqli_query($con,"select type.name FROM tasks ,type WHERE tasks.type_id = type.id && tasks.id =".$row['id'])) ;
@@ -64,8 +41,8 @@
                      $id = $row['id'];
                     ?>
                     
-                        <button class="border-1 border-secondary d-flex btnBtn" ondrag="drag(event)" id="<?php echo $id; ?>"
-                        draggable="true" onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
+                        <button class="border-1 border-secondary d-flex btnBtn"  
+                         onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                             <div class="col-1">
                             <i class="bi bi-question-circle text-success fa-2x"></i>
                             </div>
@@ -83,7 +60,7 @@
                         </button>
                     <?php
                     
-                }elseif($row['status_id']==2 && $test==2 )
+                }elseif($row['status_id']== $test  )
                 {
                     $qryType = mysqli_fetch_assoc( mysqli_query($con,"select type.name FROM tasks ,type WHERE tasks.type_id = type.id && tasks.id =".$row['id'])) ;
                     $type = $qryType["name"] ;
@@ -92,7 +69,7 @@
                     $id = $row['id'];
                     ?>
                         
-                        <button class="border-1 border-secondary d-flex btnBtn" ondrag="drag(event)" draggable="true" id="<?php echo $id; ?>"
+                        <button class="border-1 border-secondary d-flex btnBtn" 
                         onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                        
                             <div class="col-1">
@@ -112,7 +89,7 @@
                         </button>
                     <?php
                     
-                }elseif($row['status_id']==3  && $test ==3)
+                }elseif($row['status_id']==  $test)
                 {
                    
                     $qryType = mysqli_fetch_assoc( mysqli_query($con,"select type.name FROM tasks ,type WHERE tasks.type_id = type.id && tasks.id =".$row['id'])) ;
@@ -121,7 +98,7 @@
                     $priority = $qryPr["name"] ;
                     $id = $row['id'];
                     ?>
-                        <button class="btnBtn border-1 border-secondary d-flex" ondrag="drag(event)" draggable="true"  id="<?php echo $id; ?>"
+                        <button class="btnBtn border-1 border-secondary d-flex"   
                         onclick="getData(<?php echo $id; ?>,'<?php echo $row['title']; ?>','<?php echo $type; ?>',<?php echo $row['priority_id']; ?>,<?php echo $row['status_id']; ?>,'<?php echo $row['task_datetime']; ?>','<?php echo $row['description']; ?>')">
                             <div class="col-1">
                                 <i class="bi bi-check-circle text-success fa-2x"></i> 

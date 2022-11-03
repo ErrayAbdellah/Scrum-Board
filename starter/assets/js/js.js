@@ -53,27 +53,27 @@ var tas = document.querySelectorAll('.tas');
 // }
 
 
-function letDrag(e)
-{
-    e.preventDefault();
-}
+// function letDrag(e)
+// {
+//     e.preventDefault();
+// }
 
-var idMove ;
-function drag(e)
-{
-    e.preventDefault();
-    idMove = e.target.id 
-}
+// var idMove ;
+// function drag(e)
+// {
+//     e.preventDefault();
+//     idMove = e.target.id 
+// }
 
-function dropTodo()
-{
+// function dropTodo()
+// {
 
-}
-function dropInProgresse()
-{
+// }
+// function dropInProgresse()
+// {
     
-}
-function dropDone()
-{
+// }
+// function dropDone()
+// {
 
-}
+// }

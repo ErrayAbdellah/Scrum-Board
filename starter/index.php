@@ -56,9 +56,9 @@
 				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"  >
 					<div class="card bg-secondary "  style="width: 100%; " >
 						<div class="card-header bg-secondary text-center text-lg-start" >
-							<h4 class="text-light">To do (<span id="to-do-tasks-count"><?php cmp(1) ;?></span>)</h4>
+							<h4 class="text-light">To do (<span id="to-do-tasks-count"><?php echo  $cmtTodo ; ?></span>)</h4>
 						</div> 
-						<div class="row-cols-1 tas"  id="to-do-tasks" ondragover="letDrag()" ondrop="dropTodo()">
+						<div class="row-cols-1 tas"  id="to-do-tasks" >
 							<!-- TO DO TASKS HERE -->
 							<?php 
 								getTasks(1);
@@ -70,10 +70,10 @@
 				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"    >
 					<div  class="card bg-secondary"  style="width: 100%; " >
 						<div class="card-header  bg-secondary text-center text-lg-start">
-							<h4 class="text-light">In Progress (<span id="in-progress-tasks-count"><?php cmp(2) ;?></span>)</h4>
+							<h4 class="text-light">In Progress (<span id="in-progress-tasks-count"><?php echo  $cmtInProgresse ; ?></span>)</h4>
 
 						</div>
-						<div class="row-cols-1 tas"  id="in-progress-tasks" ondragover="letDrag()" ondrop="dropInProgresse()">
+						<div class="row-cols-1 tas"  id="in-progress-tasks">
 							<!-- IN PROGRESS TASKS HERE -->
 							<?php 
 								getTasks(2);
@@ -84,10 +84,10 @@
 				<div class="col-lg-4 col-md-6 col-sm-12 mb-4"  >
 					<div   class="card bg-secondary"   style="width: 100%; ">
 						<div class="card-header bg-secondary text-center text-lg-start">
-							<h4 class="text-light">Done (<span id="done-tasks-count"><?php cmp(3) ;?></span>)</h4>
+							<h4 class="text-light">Done (<span id="done-tasks-count"><?php echo  $cmtDone ; ?></span>)</h4>
 
 						</div>
-						<div class="row-cols-1 tas" id="done-tasks" ondragover="letDrag()" ondrop="dropDone()">
+						<div class="row-cols-1 tas" id="done-tasks">
 							<!-- DONE TASKS HERE -->
 
 							<?php 
